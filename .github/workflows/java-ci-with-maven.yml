@@ -17,7 +17,7 @@ jobs:
     steps:
 
     - name: Check Out
-    - uses: actions/checkout@v3
+      uses: actions/checkout@v3
 
     - name: Set up JDK 17
       uses: actions/setup-java@v3
@@ -30,9 +30,9 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Run commands
-        run: |
-          hostname
-          whoami
-          uname -a
-          java -jar target/greeting-api-0.0.1-SNAPSHOT.jar
+      run: |
+        hostname
+        whoami
+        uname -a
+        java -jar target/greeting-api-0.0.1-SNAPSHOT.jar
 
