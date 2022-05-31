@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-run:
 
     runs-on: ubuntu-latest
 
@@ -34,5 +34,8 @@ jobs:
         hostname
         whoami
         uname -a
-        java -jar target/greeting-api-0.0.1-SNAPSHOT.jar
+        java -jar target/greeting-api-0.0.1-SNAPSHOT.jar &
+        curl localhost:10003/greeting
+        curl localhost:10003/greeting
+        curl localhost:10003/greeting
 
