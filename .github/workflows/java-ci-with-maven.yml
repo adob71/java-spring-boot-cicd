@@ -36,7 +36,7 @@ jobs:
         uname -a
         java -jar target/greeting-api-0.0.1-SNAPSHOT.jar &
         sleep 10
-        curl localhost:10003/greeting
-        curl localhost:10003/greeting
-        curl localhost:10003/greeting
+        curl -v localhost:10003/greeting
+        curl -v localhost:10003/greeting
+        curl -v localhost:10003/greeting
 
