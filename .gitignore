@@ -31,10 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-.terraform*
-terraform.tfstate*
-*.pem
-*.crt
-*.p12
-commands
