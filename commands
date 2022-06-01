@@ -1,3 +1,0 @@
-./mvnw spring-boot:run
-./mvnw clean package
-java -jar target/greeting-api-0.0.1-SNAPSHOT.jar
