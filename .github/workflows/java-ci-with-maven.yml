@@ -34,11 +34,6 @@ jobs:
         hostname
         whoami
         uname -a
-        jps
-        java -jar target/greeting-api-0.0.1-SNAPSHOT.jar &
-        sleep 10
-        jps
-        curl -v localhost:10003/greeting
-        curl -v localhost:10003/greeting
-        curl -v localhost:10003/greeting
+        docker build -t greeting-api-openjdk-17-oracle:0.0.1 docker/openjdk-17-oracle
+        docker run greeting-api-openjdk-17-oracle:0.0.1
 
