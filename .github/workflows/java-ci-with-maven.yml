@@ -29,15 +29,14 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Run commands
+    - name: Build with Docker
       run: |
         hostname
         whoami
         uname -a
-        docker image ls
-        docker ps
         docker build -t greeting-api-openjdk-17-oracle:0.0.1 docker/openjdk-17-oracle
-        docker run -d greeting-api-openjdk-17-oracle:0.0.1
         docker image ls
+        docker run -d greeting-api-openjdk-17-oracle:0.0.1
         docker ps
+        sleep 10
 
