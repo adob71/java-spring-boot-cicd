@@ -1,0 +1,6 @@
+docker image ls
+docker ps
+docker exec -it container-name bash
+docker rmi -f image-id
+docker build -t greeting-api-openjdk-17-oracle:0.0.1 .
+docker run greeting-api-openjdk-17-oracle:0.0.1
