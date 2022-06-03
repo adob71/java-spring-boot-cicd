@@ -35,8 +35,8 @@ jobs:
     - name: configure aws credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        #aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        #aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-2
 
     - name: login to aws ecr
@@ -45,5 +45,6 @@ jobs:
 
     - name: push image to aws ecr
       run: |
-        docker push $AWS_ACCOUNT_ID.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+        hostname
+        #docker push $AWS_ACCOUNT_ID.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
