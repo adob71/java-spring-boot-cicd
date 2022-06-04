@@ -29,9 +29,11 @@ jobs:
 
     - name: build image with docker
       run: |
-        docker build \
-        -t greeting-api-openjdk-17-oracle:0.0.1
-        -t $AWS_ACCOUNT_ID.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1 .
+        docker build -t greeting-api-openjdk-17-oracle:0.0.1 .
+
+        docker image tag \
+        greeting-api-openjdk-17-oracle:0.0.1 \
+        $AWS_ACCOUNT_ID.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
     - name: configure aws credentials
       uses: aws-actions/configure-aws-credentials@v1
