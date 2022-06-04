@@ -25,7 +25,6 @@ jobs:
 
     - name: build jar with maven
       run: |
-        #mvn -B package --file pom.xml
         ./mvnw clean package
 
     - name: build image with docker
@@ -35,12 +34,12 @@ jobs:
     - name: configure aws credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        #aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        #aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-2
 
     - name: login to aws ecr
-      #id: login-ecr
+      id: 'AWS'
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: push image to aws ecr
