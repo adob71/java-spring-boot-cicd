@@ -33,7 +33,7 @@ jobs:
 
         docker image tag \
         greeting-api-openjdk-17-oracle:0.0.1 \
-        $AWS_ACCOUNT_ID.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+        ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
     - name: configure aws credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -49,5 +49,5 @@ jobs:
     - name: push image to aws ecr
       run: |
         hostname
-        docker push $AWS_ACCOUNT_ID.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
