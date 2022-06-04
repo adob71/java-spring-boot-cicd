@@ -16,7 +16,7 @@ jobs:
     - name: Check out
       uses: actions/checkout@v3
 
-    - name: Set up JDK 17
+    - name: Set up JDK
       uses: actions/setup-java@v3
       with:
         java-version: '17'
@@ -27,7 +27,7 @@ jobs:
       run: |
         ./mvnw clean package
 
-    - name: Build image with Docker
+    - name: Build Docker image
       run: |
         docker build \
         -t greeting-api-openjdk-17-oracle:0.0.1 .
@@ -47,7 +47,7 @@ jobs:
       id: 'AWS'
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Push image to AWS ECR
+    - name: Push Docker image to AWS ECR
       run: |
         docker push \
         ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
