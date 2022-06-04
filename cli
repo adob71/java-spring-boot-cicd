@@ -17,7 +17,10 @@ aws_account_id.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.
 
 aws ecr get-login-password | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.eu-west-2.amazonaws.com
 
-aws ecr create-repository --repository-name greeting-api-openjdk-17-oracle 
+aws ecr create-repository \
+    --repository-name greeting-api-openjdk-17-oracle \
+    --image-scanning-configuration scanOnPush=true \
+    --region eu-west-2
 
 docker push aws_account_id.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
