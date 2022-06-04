@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_REGION: eu-west-2
+
 jobs:
   ci:
 
@@ -33,14 +39,14 @@ jobs:
 
         docker image tag \
         greeting-api-openjdk-17-oracle:0.0.1 \
-        ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+        $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
     - name: configure aws credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: eu-west-2
+        aws-access-key-id: $AWS_ACCESS_KEY_ID
+        aws-secret-access-key: $AWS_SECRET_ACCESS_KEY
+        aws-region: $AWS_REGION
 
     - name: login to aws ecr
       id: 'AWS'
@@ -49,5 +55,5 @@ jobs:
     - name: push image to aws ecr
       run: |
         hostname
-        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+        docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
