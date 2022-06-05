@@ -2,7 +2,6 @@
 ./mvnw clean package
 java -jar target/greeting-api-0.0.1-SNAPSHOT.jar
 
-
 docker image ls
 docker rmi -f image-id
 docker run greeting-api-openjdk-17-oracle:0.0.1
@@ -13,16 +12,15 @@ docker build -t greeting-api-openjdk-17-oracle:0.0.1 .
 
 docker image tag \
 greeting-api-openjdk-17-oracle:0.0.1 \
-aws_account_id.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+aws_account_id.dkr.ecr.aws_region.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
-aws ecr get-login-password | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.eu-west-2.amazonaws.com
+aws ecr get-login-password | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.aws_region.amazonaws.com
 
 aws ecr create-repository \
     --repository-name greeting-api-openjdk-17-oracle \
-    --image-scanning-configuration scanOnPush=true \
-    --region eu-west-2
+    --image-scanning-configuration scanOnPush=true
 
-docker push aws_account_id.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+docker push aws_account_id.dkr.ecr.aws_region.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
 aws ecr batch-delete-image \
       --repository-name greeting-api-openjdk-17-oracle \
