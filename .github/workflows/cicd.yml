@@ -52,3 +52,7 @@ jobs:
         docker push \
         ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
+    - name: Deploy image to AWS EKS
+      run: |
+        kubectl apply -f greeting-api-deployment.yaml
+        kubectl apply -f greeting-api-service.yaml

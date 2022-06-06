@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: greeting-api-deployment
+  name: greeting-api
   namespace: default
   labels:
     app: greeting-api-app
@@ -27,7 +27,7 @@ spec:
                 - arm64
       containers:
       - name: greeting-api-openjdk-17-oracle
-        image: aws_account_id.dkr.ecr.aws_region.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+        image: ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
         ports:
         - name: http
           containerPort: 80
