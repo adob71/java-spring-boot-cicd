@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greeting-api-deployment
+  namespace: default
+  labels:
+    app: greeting-api-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: greeting-api-app
+  template:
+    metadata:
+      labels:
+        app: greeting-api-app
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+                - arm64
+      containers:
+      - name: greeting-api-openjdk-17-oracle
+        image: aws_account_id.dkr.ecr.aws_region.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+        ports:
+        - name: http
+          containerPort: 80
+        imagePullPolicy: IfNotPresent
+      nodeSelector:
+        kubernetes.io/os: linux

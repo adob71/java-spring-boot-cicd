@@ -26,3 +26,4 @@ aws ecr batch-delete-image \
       --repository-name greeting-api-openjdk-17-oracle \
       --image-ids imageTag=0.0.1
 
+kubectl apply -f greeting-api-deployment.yaml
