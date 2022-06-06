@@ -1,4 +1,4 @@
-name: ci-java-maven-docker-aws-ecr
+name: cicd
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  ci-java-maven-docker-aws-ecr:
+  cicd:
 
     runs-on: ubuntu-latest
 
