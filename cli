@@ -26,10 +26,8 @@ aws ecr batch-delete-image \
       --repository-name greeting-api-openjdk-17-oracle \
       --image-ids imageTag=0.0.1
 
-kubectl create namespace greeting-api
 kubectl apply -f greeting-api-deployment.yaml
 kubectl apply -f greeting-api-service.yaml
 
 kubectl delete -f greeting-api-service.yaml
 kubectl delete -f greeting-api-deployment.yaml
-kubectl delete namespace greeting-api

@@ -54,7 +54,7 @@ jobs:
 
     - name: Configure kubeconfig for AWS EKS
       run: |
-        aws eks update-kubeconfig --region ${{secrets.AWS_REGION}} --name education-eks-oU9vFknl
+        aws eks update-kubeconfig --region ${{secrets.AWS_REGION}} --name ${{secrets.AWS_CLUSTER_NAME}} 
 
     - name: Deploy image to AWS EKS
       run: |
