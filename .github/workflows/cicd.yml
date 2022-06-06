@@ -52,6 +52,10 @@ jobs:
         docker push \
         ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
+    - name: Configure kubeconfig for AWS EKS
+      run: |
+        aws eks update-kubeconfig --region ${{secrets.AWS_REGION}} --name education-eks-oU9vFknl
+
     - name: Deploy image to AWS EKS
       run: |
         kubectl apply -f greeting-api-deployment.yaml
