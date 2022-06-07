@@ -27,7 +27,7 @@ spec:
                 - arm64
       containers:
       - name: greeting-api-openjdk-17-oracle
-        image: 011285877396.dkr.ecr.eu-west-2.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+        image: aws_account_id.dkr.ecr.aws_region.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
         ports:
         - name: http
           containerPort: 80
