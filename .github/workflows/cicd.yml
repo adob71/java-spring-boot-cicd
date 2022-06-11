@@ -21,13 +21,11 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: maven
+       #cache: maven
 
     - name: Build jar with Maven
       run: |
-        #ls -l target/greeting-api-0.0.1-SNAPSHOT.jar
         ./mvnw clean package
-        ls -l target/greeting-api-0.0.1-SNAPSHOT.jar
 
     - name: Build image with Docker
       run: |
