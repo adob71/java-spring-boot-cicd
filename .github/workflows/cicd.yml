@@ -33,7 +33,8 @@ jobs:
         #sleep 10
         ls -l target/greeting-api-0.0.1-SNAPSHOT.jar
         #sleep 10
-        docker rmi -f greeting-api-openjdk-17-oracle:0.0.1 \
+        docker rmi -f \
+        greeting-api-openjdk-17-oracle:0.0.1 \
         ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
         cat Dockerfile
         docker image prune -a -f
@@ -44,7 +45,8 @@ jobs:
         docker image ls
         sleep 10
 
-        docker image tag greeting-api-openjdk-17-oracle:0.0.1 \
+        docker image tag \
+        greeting-api-openjdk-17-oracle:0.0.1 \
         ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
         #sleep 10
