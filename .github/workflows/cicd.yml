@@ -35,10 +35,12 @@ jobs:
         sleep 10
         docker rmi -f greeting-api-openjdk-17-oracle:0.0.1 \
         ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+        cat Dockerfile
         sleep 10
 
         docker build --no-cache --pull -t greeting-api-openjdk-17-oracle:0.0.1 .
 
+        docker image ls
         sleep 10
 
         docker image tag greeting-api-openjdk-17-oracle:0.0.1 \
