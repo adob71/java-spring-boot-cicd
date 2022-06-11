@@ -3,7 +3,11 @@
 java -jar target/greeting-api-0.0.1-SNAPSHOT.jar
 
 docker image ls
+
 docker rmi -f image-id
+docker rmi -f greeting-api-openjdk-17-oracle:0.0.1 \
+aws_account_id.dkr.ecr.aws_region.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
+
 docker run greeting-api-openjdk-17-oracle:0.0.1
 docker ps
 docker exec -it container-name bash
