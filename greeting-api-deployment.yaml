@@ -24,7 +24,7 @@ spec:
                 operator: In
                 values:
                 - amd64
-                  #                - arm64
+               #- arm64
       containers:
       - name: greeting-api-openjdk-17-oracle
         image: aws_account_id.dkr.ecr.aws_region.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
