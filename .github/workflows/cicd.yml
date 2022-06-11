@@ -48,6 +48,8 @@ jobs:
 
         sleep 10
         docker run -d --name test123 greeting-api-openjdk-17-oracle:0.0.1
+        sleep 10
+        docker ps
         docker exec -it test123 ls -l
         sleep 10
 
