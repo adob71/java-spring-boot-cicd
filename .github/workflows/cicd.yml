@@ -46,6 +46,11 @@ jobs:
         docker image tag greeting-api-openjdk-17-oracle:0.0.1 \
         ${{secrets.AWS_ACCOUNT_ID}}.dkr.ecr.${{secrets.AWS_REGION}}.amazonaws.com/greeting-api-openjdk-17-oracle:0.0.1
 
+        sleep 10
+        docker run -d --name test123 greeting-api-openjdk-17-oracle:0.0.1
+        docker exec -it test123 ""ls -l""
+        sleep 10
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
