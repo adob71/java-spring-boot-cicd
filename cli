@@ -34,8 +34,9 @@ aws ecr batch-delete-image \
 kubectl apply -f greeting-api-deployment.yaml
 kubectl apply -f greeting-api-service.yaml
 
+kubectl delete pod pod_name
+kubectl delete pod pod_name
+
 kubectl delete -f greeting-api-service.yaml
 kubectl delete -f greeting-api-deployment.yaml
-
-
 
