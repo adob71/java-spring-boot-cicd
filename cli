@@ -33,11 +33,12 @@ aws ecr batch-delete-image \
 
 kubectl apply -f greeting-api-deployment.yaml
 kubectl apply -f greeting-api-service.yaml
+kubectl create ingress greeting-api --class=nginx --rule "EXTERNAL-IP/*=greeting-api:80"
 
 kubectl exec -it pod-nam -- bash
-
 kubectl delete pod pod-name
 
+kubectl delete ingress greeting-api
 kubectl delete -f greeting-api-service.yaml
 kubectl delete -f greeting-api-deployment.yaml
 
