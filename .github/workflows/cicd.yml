@@ -23,7 +23,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-          #cache: maven
+        cache: maven
 
     - name: Build jar with Maven
       run: |
@@ -32,7 +32,6 @@ jobs:
     - name: Build image with Docker
       run: |
 
-        #        docker build --no-cache --pull -t greeting-api-openjdk-17-oracle:0.0.1 .
         docker build -t greeting-api-openjdk-17-oracle:0.0.1 .
 
         docker image tag \
