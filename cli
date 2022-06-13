@@ -13,7 +13,7 @@ docker run greeting-api-openjdk-17-oracle:0.0.1
 docker ps
 docker exec -it container-name bash
 
-docker build --no-cache --pull -t greeting-api-openjdk-17-oracle:0.0.1 . 
+docker build -t greeting-api-openjdk-17-oracle:0.0.1 . 
 
 docker image tag \
 greeting-api-openjdk-17-oracle:0.0.1 \
