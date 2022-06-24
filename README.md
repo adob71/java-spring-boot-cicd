@@ -1,13 +1,24 @@
 ### System Overview
 
+### Deployment
+git push
+
 ### Project Structure
 ```
 .
 ├── cli
 ├── Dockerfile
+├── .github
+│   └── workflows
+│       └── cicd.yml
+├── .gitignore
 ├── greeting-api-deployment.yaml
 ├── greeting-api-service.yaml
 ├── HELP.md
+├── .mvn
+│   └── wrapper
+│       ├── maven-wrapper.jar
+│       └── maven-wrapper.properties
 ├── mvnw
 ├── mvnw.cmd
 ├── pom.xml
